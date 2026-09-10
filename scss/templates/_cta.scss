@@ -1,5 +1,5 @@
 .cta{
-	background: url("../images/bg/bg-4.jpg")no-repeat 50% 50%;
+	background: url("../images/about/img-3.jpg") no-repeat 50% 50%;
 	background-size: cover;
 	position: relative;
 
@@ -10,7 +10,7 @@
 		top:0px;
 		width:100%;
 		height:100%;
-		background: rgba(34, 58, 102,.95);
+		background: rgba($primary-color, 0.82);
 	}
 }
 

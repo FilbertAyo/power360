@@ -308,10 +308,17 @@ a:focus {
 }
 
 
+@include tablet{
+   h2, .h2 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+  }
+}
+
 @include mobile{
    h2, .h2 {
-      font-size: 1.3rem;
-      line-height: 36px;
+      font-size: 1.5rem;
+      line-height: 1.3;
   }
 }
 
@@ -340,9 +347,13 @@ a:focus {
   background:#f4f9fc;
 }
 
-@include mobile{
-  .text-lg{
-    font-size: 28px;
+@include tablet {
+  .text-lg {
+    font-size: 32px;
+  }
+
+  .page-title {
+    padding: 72px 0 44px;
   }
 }
 @include mobile-xs{

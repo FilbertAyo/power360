@@ -1,29 +1,60 @@
 .banner{
   position: relative;
   overflow: hidden;
-  background: $light;
-  background: url("../images/bg/slider-bg-1.jpg") no-repeat;
+  background: $primary-color url("../images/bg/slider-bg-1.jpg") no-repeat;
   background-size: cover;
-  min-height: 550px;
+  background-position: center center;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+
+  /* full-width semi-transparent overlay so text is always readable */
+  &:before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($primary-color, 0.55);
+    pointer-events: none;
+  }
+
+  .container{
+    position: relative;
+    z-index: 1;
+  }
 
   .block{
-    padding: 80px 0px 160px;
+    padding: 20px 0;
 
     h1{
-      font-size: 60px;
+      font-size: 56px;
       line-height: 1.2;
-      letter-spacing:-1.2px;
+      letter-spacing: -1px;
       text-transform: capitalize;
-      color: $title-color;
+      color: $light;
     }
 
+    p {
+      color: rgba($light, 0.9);
+    }
+
+    .divider {
+      background: $secondary-color;
+    }
+
+    .text-uppercase {
+      color: rgba($light, 0.82);
+    }
   }
+}
+
+// Override bootstrap text-uppercase color inside banner
+.banner span.text-uppercase {
+  color: rgba(255,255,255,0.82);
 }
 
 .letter-spacing{
   letter-spacing:2px;
 }
-
 
 .text-color{
   color: $primary-color;
@@ -33,7 +64,6 @@
   color: $secondary-color;
 }
 
-
 .divider{
   width: 40px;
   height:5px;
@@ -41,64 +71,56 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-@include mobile{
-   .banner .block h1 {
-      font-size: 38px;
-      line-height: 50px;
-  }
-
+// ── Tablet ────────────────────────────────────────────────
+@include tablet {
   .banner{
-    min-height: 450px;
-    background: $light!important;
+    min-height: 520px;
+    background-position: 60% center;
+    align-items: flex-end;
+
+    .block{
+      padding: 16px 0 60px;
+
+      h1{
+        font-size: 44px;
+      }
+    }
   }
 }
 
+
+// ── Mobile / small phone ──────────────────────────────────
+@include mobile {
+  .banner{
+    min-height: 460px;
+    background-position: 62% center;
+    align-items: flex-end;   /* text anchored near bottom so face isn't covered */
+
+    /* slightly heavier overlay on small screens for legibility */
+    &:before{
+      background: rgba($primary-color, 0.65);
+    }
+
+    .block{
+      padding: 16px 0 52px;  /* 52px bottom lifts text off the edge */
+
+      h1{
+        font-size: 30px;
+        line-height: 1.25;
+        letter-spacing: -0.3px;
+      }
+    }
+  }
+}
 
 @include mobile-xs{
-    .banner .block h1 {
-      font-size: 28px;
-      line-height: 40px;
-  }
-
   .banner{
-     min-height: 450px;
-    background: $light!important;
+    min-height: 380px;
+
+    .block{
+      padding-bottom: 40px;
+
+      h1{ font-size: 26px; }
+    }
   }
-
 }
-
-
-@include tablet{
-     .banner .block h1 {
-        font-size: 56px;
-        line-height: 70px;
-    }
-
-    .banner{
-      background: $light!important;
-    }
-
-}
-
-@include desktop{
-    .banner{
-      background: $light!important;
-    }
-}
-
-@include large-desktop{
-    .banner{
-      // background: $light!important;
-    }
-}
-
-

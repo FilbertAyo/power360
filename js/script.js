@@ -176,21 +176,82 @@
 	      time: 1000
 	  });
 
+  function revealPage() {
+    document.body.classList.add('is-loaded');
+    var loader = document.querySelector('.page-loader');
+    if (loader) {
+      loader.setAttribute('aria-busy', 'false');
+    }
+  }
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    revealPage();
+  } else {
+    if (document.readyState === 'complete') {
+      window.setTimeout(revealPage, 180);
+    } else {
+      $(window).on('load', function () {
+        window.setTimeout(revealPage, 180);
+      });
+    }
+    window.setTimeout(revealPage, 2500);
+  }
+
+  $('a[href]').on('click', function (event) {
+    if (prefersReducedMotion || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+
+    if (this.target === '_blank' || this.hasAttribute('download')) {
+      return;
+    }
+
+    if (this.getAttribute('data-toggle') || this.classList.contains('dropdown-toggle') || this.classList.contains('navbar-toggler')) {
+      return;
+    }
+
+    var href = this.getAttribute('href');
+
+    if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0 || href.indexOf('javascript:') === 0) {
+      return;
+    }
+
+    if (this.hostname && this.hostname !== window.location.hostname) {
+      return;
+    }
+
+    if (this.href === window.location.href) {
+      return;
+    }
+
+    event.preventDefault();
+    document.body.classList.remove('is-loaded');
+    var loader = document.querySelector('.page-loader');
+    if (loader) {
+      loader.setAttribute('aria-busy', 'true');
+    }
+    window.location.href = href;
+  });
+
 		
  // Shuffle js filter and masonry
     var Shuffle = window.Shuffle;
-    var jQuery = window.jQuery;
+    var shuffleWrapper = document.querySelector('.shuffle-wrapper');
 
-    var myShuffle = new Shuffle(document.querySelector('.shuffle-wrapper'), {
-        itemSelector: '.shuffle-item',
-        buffer: 1
-    });
+    if (Shuffle && shuffleWrapper) {
+        var myShuffle = new Shuffle(shuffleWrapper, {
+            itemSelector: '.shuffle-item',
+            buffer: 1
+        });
 
-    jQuery('input[name="shuffle-filter"]').on('change', function (evt) {
-        var input = evt.currentTarget;
-        if (input.checked) {
-            myShuffle.filter(input.value);
-        }
-    });
+        jQuery('input[name="shuffle-filter"]').on('change', function (evt) {
+            var input = evt.currentTarget;
+            if (input.checked) {
+                myShuffle.filter(input.value);
+            }
+        });
+    }
 
 })(jQuery);

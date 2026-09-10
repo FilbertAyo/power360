@@ -1,5 +1,27 @@
 
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: $light;
+}
+
+.navigation {
+  background: $light;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.navbar-brand img {
+  max-height: 52px;
+  width: auto;
+}
+
+.navbar-toggler {
+  color: $black;
+  border: 0;
+}
+
 #navbarmain{
  padding: 20px 0px;
 
@@ -48,11 +70,12 @@
     -o-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s;
     border:0px;
-    border-top: 5px solid #e12454;
+    border-top: 5px solid $secondary-color;
     border-radius: 0px;
   }
 
-   &:hover .dropdown-menu{
+   &:hover .dropdown-menu,
+   &.show .dropdown-menu{
       opacity: 1;
       visibility: visible;
       top:115%;
@@ -93,6 +116,13 @@
       color: $light;
       margin-right:20px;
     }
+  }
+}
+
+// Hide tagline on small screens
+@include tablet {
+  .top-right-bar > span {
+    display: none !important;
   }
 }
 
