@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /plugins/
+Disallow: /scss/
+
+Sitemap: https://power360.or.tz/sitemap.xml

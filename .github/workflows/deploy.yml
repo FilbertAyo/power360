@@ -26,3 +26,6 @@ jobs:
                 *) cp -a "$item" ~/public_html/ ;;
               esac
             done
+            if [ -f .htaccess ]; then
+              cp -a .htaccess ~/public_html/
+            fi

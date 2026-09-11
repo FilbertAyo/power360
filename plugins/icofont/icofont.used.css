@@ -1,0 +1,54 @@
+@font-face {
+  font-family: IcoFont;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(fonts/icofont.used.woff2) format("woff2");
+}
+[class*=" icofont-"],
+[class^=icofont-] {
+  font-family: IcoFont !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icofont-tree-alt:before { content: "\e824"; }
+.icofont-handshake-deal:before { content: "\e96f"; }
+.icofont-money-bag:before { content: "\e972"; }
+.icofont-long-arrow-up:before { content: "\ea95"; }
+.icofont-simple-right:before { content: "\eab8"; }
+.icofont-thin-down:before { content: "\eac8"; }
+.icofont-education:before { content: "\ead7"; }
+.icofont-read-book:before { content: "\eaeb"; }
+.icofont-law-document:before { content: "\ebc3"; }
+.icofont-heart-beat-alt:before { content: "\ec1e"; }
+.icofont-ui-settings:before { content: "\ec83"; }
+.icofont-ui-user:before { content: "\ec8e"; }
+.icofont-video-cam:before { content: "\ecb3"; }
+.icofont-people:before { content: "\ecf9"; }
+.icofont-users-alt-3:before { content: "\ed08"; }
+.icofont-check:before { content: "\eed8"; }
+.icofont-email:before { content: "\ef12"; }
+.icofont-location-pin:before { content: "\ef79"; }
+.icofont-megaphone-alt:before { content: "\ef90"; }
+.icofont-navigation-menu:before { content: "\efa2"; }
+.icofont-pay:before { content: "\efb7"; }
+.icofont-speech-comments:before { content: "\eff2"; }
+.icofont-support-faq:before { content: "\f002"; }
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
